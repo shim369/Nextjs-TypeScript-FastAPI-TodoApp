@@ -4,3 +4,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.container {
+    min-height: 100vh;
+}
