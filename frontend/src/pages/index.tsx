@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styles from "@/styles/Home.module.css"
 
 interface Todo {
   id: number;
@@ -56,10 +57,10 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Todo List</h1>
       {editing ? (
-        <div>
+        <div className={styles.editBox}>
           <h2>Edit Todo</h2>
           <form
             onSubmit={(e) => {
@@ -105,9 +106,9 @@ const Home: React.FC = () => {
           </form>
         </div>
       ) : (
-        <div>
+        <div className={styles.addBox}>
           <h2>Add a Todo</h2>
-          <form onSubmit={createTodo}>
+          <form onSubmit={createTodo} className={styles.form}>
             <label>Name</label>
             <input
               type="text"
