@@ -70,7 +70,10 @@ const Home: React.FC = () => {
               e.preventDefault();
               if (currentTodo) updateTodo(currentTodo.id);
             }}
+            className={styles.form}
           >
+          <div className={styles.editInner}>
+            <div>
             <label>Name</label>
             <input
               type="text"
@@ -82,6 +85,8 @@ const Home: React.FC = () => {
                 })
               }
             />
+            </div>
+            <div>
             <label>Due Date</label>
             <input
               type="text"
@@ -93,6 +98,8 @@ const Home: React.FC = () => {
                 })
               }
             />
+            </div>
+            <div>
             <label>Description</label>
             <input
               type="text"
@@ -104,8 +111,12 @@ const Home: React.FC = () => {
                 })
               }
             />
-            <button type="submit">Update</button>
-            <button onClick={() => setEditing(false)}>Cancel</button>
+            </div>
+            </div>
+            <div className={styles.btns}>
+              <button type="submit">Update</button>
+              <button onClick={() => setEditing(false)}>Cancel</button>
+            </div>
           </form>
         </div>
       ) : (
