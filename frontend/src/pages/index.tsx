@@ -89,7 +89,7 @@ const Home: React.FC = () => {
             <div>
             <label>Due Date</label>
             <input
-              type="text"
+              type="date"
               value={currentTodo?.due_date || ""}
               onChange={(e) =>
                 setCurrentTodo({
@@ -135,7 +135,7 @@ const Home: React.FC = () => {
             <div>
               <label>Due Date</label>
               <input
-                type="text"
+                type="date"
                 value={newTodo.due_date}
                 onChange={(e) =>
                   setNewTodo({ ...newTodo, due_date: e.target.value })
