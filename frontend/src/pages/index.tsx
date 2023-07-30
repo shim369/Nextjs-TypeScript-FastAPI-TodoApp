@@ -57,8 +57,11 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
+    <header>
       <h1>Todo List</h1>
+    </header>
+    <div className={styles.container}>
       {editing ? (
         <div className={styles.editBox}>
           <h2>Edit Todo</h2>
@@ -109,20 +112,26 @@ const Home: React.FC = () => {
         <div className={styles.addBox}>
           <h2>Add a Todo</h2>
           <form onSubmit={createTodo} className={styles.form}>
-            <label>Name</label>
-            <input
-              type="text"
-              value={newTodo.name}
-              onChange={(e) => setNewTodo({ ...newTodo, name: e.target.value })}
-            />
-            <label>Due Date</label>
-            <input
-              type="text"
-              value={newTodo.due_date}
-              onChange={(e) =>
-                setNewTodo({ ...newTodo, due_date: e.target.value })
-              }
-            />
+            <div className={styles.formInner}>
+            <div>
+              <label>Name</label>
+              <input
+                type="text"
+                value={newTodo.name}
+                onChange={(e) => setNewTodo({ ...newTodo, name: e.target.value })}
+              />
+            </div>
+            <div>
+              <label>Due Date</label>
+              <input
+                type="text"
+                value={newTodo.due_date}
+                onChange={(e) =>
+                  setNewTodo({ ...newTodo, due_date: e.target.value })
+                }
+              />
+            </div>
+            <div>
             <label>Description</label>
             <input
               type="text"
@@ -131,22 +140,31 @@ const Home: React.FC = () => {
                 setNewTodo({ ...newTodo, description: e.target.value })
               }
             />
+            </div>
+            </div>
             <button type="submit">Add</button>
           </form>
         </div>
       )}
 
-      <h2>View Todos</h2>
-      {todos.map((todo) => (
-        <div key={todo.id}>
-          <h3>{todo.name}</h3>
-          <p>Due: {todo.due_date}</p>
-          <p>{todo.description}</p>
-          <button onClick={() => editTodo(todo)}>Edit</button>
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+      <div className={styles.viewBox}>
+        <h2>View Todos</h2>
+        <div className={styles.viewWrapper}>
+        {todos.map((todo) => (
+          <div key={todo.id} className={styles.viewInner}>
+            <div className={styles.viewItems}>
+              <h3>{todo.name}</h3>
+              <p>Due: {todo.due_date}</p>
+              <p>{todo.description}</p>
+            </div>
+            <button onClick={() => editTodo(todo)}>Edit</button>
+            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          </div>
+        ))}
         </div>
-      ))}
+      </div>
     </div>
+    </>
   );
 };
 

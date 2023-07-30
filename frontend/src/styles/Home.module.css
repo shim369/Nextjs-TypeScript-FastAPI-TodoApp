@@ -1,4 +1,4 @@
-.container, .editBox, .addBox, .form {
+.container, .editBox, .addBox {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,4 +7,46 @@
 
 .container {
     min-height: 100vh;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #ffffff72;
+    padding: 20px;
+}
+
+.formInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.formInner div {
+    width: 30%;
+}
+
+.addBox {
+}
+
+.viewBox {
+    margin-top: 50px;
+}
+
+.viewWrapper {
+    display: flex;
+}
+
+.viewInner {
+    background: #ffffff72;
+    padding: 20px;
+    margin: 0 5px 20px;
+}
+
+.viewItems {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
